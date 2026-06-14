@@ -251,21 +251,12 @@ local Window = Library:CreateWindow({
 })
 
 -- Menu toggle key
-local UIBox = GeneralTab:AddRightGroupbox("UI Settings")
-
-UIBox:AddLabel("Menu Keybind")
-    :AddKeyPicker("MenuKeybind", {
-        Default = "RightAlt",
-        NoUI = true,
-        Text = "Menu Key"
-    })
-
-Library.ToggleKeybind = Options.MenuKeybind
+Library.ToggleKeybind = Enum.KeyCode.RightAlt
 local GeneralTab = Window:AddTab("General")
 local MainBOX = GeneralTab:AddLeftTabbox("Main") do
     local Main = MainBOX:AddTab("Main")
     
-    Main:AddToggle("aim_Enabled", {Text = "Enabled"}):AddKeyPicker("aim_Enabled_KeyPicker", {Default = "RightAlt", SyncToggleState = true, Mode = "Toggle", Text = "Enabled", NoUI = false});
+    Main:AddToggle("aim_Enabled", {Text = "Enabled"});
     Options.aim_Enabled_KeyPicker:OnClick(function()
         SilentAimSettings.Enabled = not SilentAimSettings.Enabled
         
