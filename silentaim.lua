@@ -251,11 +251,11 @@ local Window = Library:CreateWindow({
 })
 
 -- Menu toggle key
-local MenuGroup = Window:AddTab("UI Settings"):AddLeftGroupbox("Menu")
+local UIBox = GeneralTab:AddRightGroupbox("UI Settings")
 
-MenuGroup:AddLabel("Menu Keybind")
+UIBox:AddLabel("Menu Keybind")
     :AddKeyPicker("MenuKeybind", {
-        Default = "RightControl",
+        Default = "P",
         NoUI = true,
         Text = "Menu Key"
     })
