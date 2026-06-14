@@ -28,7 +28,7 @@ local SilentAimSettings = {
 }
 
 -- variables
-getgenv().SilentAimSettings = SilentAimSettings
+getgenv().SilentAimSettings = Settings
 local MainFileName = "UniversalSilentAim"
 local SelectedFile, FileToSave = "", ""
 
@@ -241,19 +241,14 @@ end
 
 -- ui creating & handling
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
+Library:SetWatermark("github.com/Averiias")
 
 local Window = Library:CreateWindow({Title = 'Universal Silent Aim', Center = true, AutoShow = true, TabPadding = 8, MenuFadeTime = 0.2})
--- RightAlt toggles the UI menu
-Library.ToggleKeybind = Library:AddKeyPicker("MenuKeybind", {
-    Default = "RightAlt",
-    NoUI = true,
-    Text = "Toggle Menu"
-})
 local GeneralTab = Window:AddTab("General")
 local MainBOX = GeneralTab:AddLeftTabbox("Main") do
     local Main = MainBOX:AddTab("Main")
     
-    Main:AddToggle("aim_Enabled", {Text = "Enabled"}):AddKeyPicker("aim_Enabled_KeyPicker", {Default = "None", SyncToggleState = true, Mode = "Toggle", Text = "Silent Aim", NoUI = false});
+    Main:AddToggle("aim_Enabled", {Text = "Enabled"}):AddKeyPicker("aim_Enabled_KeyPicker", {Default = "RightAlt", SyncToggleState = true, Mode = "Toggle", Text = "Enabled", NoUI = false});
     Options.aim_Enabled_KeyPicker:OnClick(function()
         SilentAimSettings.Enabled = not SilentAimSettings.Enabled
         
