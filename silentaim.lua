@@ -11,7 +11,7 @@ local SilentAimSettings = {
     Enabled = false,
     
     ClassName = "Silent Aimbot",
-    ToggleKey = "RightAlt",
+    ToggleKey = "nil",
     
     TeamCheck = false,
     VisibleCheck = false, 
@@ -255,7 +255,7 @@ local UIBox = GeneralTab:AddRightGroupbox("UI Settings")
 
 UIBox:AddLabel("Menu Keybind")
     :AddKeyPicker("MenuKeybind", {
-        Default = "P",
+        Default = "RightAlt",
         NoUI = true,
         Text = "Menu Key"
     })
