@@ -242,7 +242,25 @@ end
 -- ui creating & handling
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
 
-local Window = Library:CreateWindow({Title = 'Silent Aim', Center = true, AutoShow = true, TabPadding = 8, MenuFadeTime = 0.2})
+local Window = Library:CreateWindow({
+    Title = 'Silent Aim',
+    Center = true,
+    AutoShow = true,
+    TabPadding = 8,
+    MenuFadeTime = 0.2
+})
+
+-- Menu toggle key
+local MenuGroup = Window:AddTab("UI Settings"):AddLeftGroupbox("Menu")
+
+MenuGroup:AddLabel("Menu Keybind")
+    :AddKeyPicker("MenuKeybind", {
+        Default = "RightControl",
+        NoUI = true,
+        Text = "Menu Key"
+    })
+
+Library.ToggleKeybind = Options.MenuKeybind
 local GeneralTab = Window:AddTab("General")
 local MainBOX = GeneralTab:AddLeftTabbox("Main") do
     local Main = MainBOX:AddTab("Main")
