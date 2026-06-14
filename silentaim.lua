@@ -241,24 +241,9 @@ end
 
 -- ui creating & handling
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
+Library:SetWatermark("github.com/Averiias")
 
 local Window = Library:CreateWindow({Title = 'Universal Silent Aim', Center = true, AutoShow = true, TabPadding = 8, MenuFadeTime = 0.2})
-
--- After creating the Window and tabs...
-
--- Set the menu toggle keybind to RightAlt
-Library.ToggleKeybind = Options.aim_Enabled_KeyPicker  -- Reuse your existing keypicker
-
--- Or create a dedicated one (cleaner):
-local MenuGroup = GeneralTab:AddRightTabbox("Menu"):AddTab("Menu")  -- or wherever you want
-MenuGroup:AddLabel("Menu Bind"):AddKeyPicker("MenuKeybind", {
-    Default = "RightAlt",
-    NoUI = true,           -- hides it from the keybinds list if you want
-    Text = "Toggle Menu"
-})
-
-Library.ToggleKeybind = Options.MenuKeybind
-
 local GeneralTab = Window:AddTab("General")
 local MainBOX = GeneralTab:AddLeftTabbox("Main") do
     local Main = MainBOX:AddTab("Main")
