@@ -28,7 +28,7 @@ local SilentAimSettings = {
 }
 
 -- variables
-getgenv().SilentAimSettings = Settings
+getgenv().SilentAimSettings = SilentAimSettings
 local MainFileName = "UniversalSilentAim"
 local SelectedFile, FileToSave = "", ""
 
@@ -243,7 +243,8 @@ end
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/violin-suzutsuki/LinoriaLib/main/Library.lua"))()
 
 local Window = Library:CreateWindow({Title = 'Universal Silent Aim', Center = true, AutoShow = true, TabPadding = 8, MenuFadeTime = 0.2})
-Library.ToggleKeybind = Options.MenuKeybind or Library:AddKeyPicker("MenuKeybind", {
+-- RightAlt toggles the UI menu
+Library.ToggleKeybind = Library:AddKeyPicker("MenuKeybind", {
     Default = "RightAlt",
     NoUI = true,
     Text = "Toggle Menu"
